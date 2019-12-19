@@ -1,0 +1,12 @@
+{% if latest_posts_list %}
+    <ul>
+    {% for post in latest_posts_list %}
+        <li>
+            <a href="{% url 'blog:detail' post.id%}">{{ post.header }}</a>
+            <p>{{ post.views }}</p>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
