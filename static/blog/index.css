@@ -4,13 +4,41 @@
 	box-sizing: border-box;
 }
 
-li {
-    padding-top: 10px;
-    padding-bottom: 10px;
+body {
+    background-image: url("https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+    background-attachment: fixed;
+}
+
+.form-holder {
+    padding: 100px 0 100px 0;
+    display: flex;
+}
+
+form {
+    background-color: white;
+    margin: auto;
+    box-shadow: 5px 5px 5px 5px rgba(110, 110, 110, 0.32);
+    padding: 10px;
+}
+
+.input-area {
     margin-top: 10px;
-    margin-bottom: 10px;
+	outline: none;
+	border: none;
+    color: #666666;
+    background-color: #e6e6e6;
+    font-size:14pt;
     border-radius: 5px;
-    border: 2px solid yellow;
-    background-color: blue;
+    padding: 10px;
+}
+
+li {
+    float: left;
+    background-color: white;
+    text-align: center;
+    height: 200px;
+    width: 45%;
+    margin: 2% 2% 2% 2%;
     list-style-type: none;
+    box-shadow: 5px 5px 5px 5px rgba(110, 110, 110, 0.32);
 }
