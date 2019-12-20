@@ -20,9 +20,12 @@ def detail(request, post_id):
 
 
 def read(request):
-    post = Post.objects.get(pk=request.POST['post_id'])
-    post.views += 1
-    post.save()
+    try:
+        post = Post.objects.get(pk=request.POST['post_id'])
+        post.views += 1
+        post.save()
+    except (KeyError, Post.DoesNotExist):
+        return HttpResponseRedirect(reverse('blog:index'))
     return HttpResponseRedirect(reverse('blog:index'))
 
 
