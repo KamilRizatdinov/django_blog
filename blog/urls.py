@@ -7,4 +7,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('<int:post_id>/', views.detail, name='detail'),
     path('read/', views.read, name='read'),
+    path('publish/', views.publish, name='publish'),
 ]

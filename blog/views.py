@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.utils import timezone
 
 from blog.models import Post
 
@@ -21,5 +22,15 @@ def detail(request, post_id):
 def read(request):
     post = Post.objects.get(pk=request.POST['post_id'])
     post.views += 1
+    post.save()
+    return HttpResponseRedirect(reverse('blog:index'))
+
+
+def publish(request):
+    post = Post(
+        header=request.POST['header'],
+        text=request.POST['text'],
+        publication_date=timezone.datetime.now()
+    )
     post.save()
     return HttpResponseRedirect(reverse('blog:index'))

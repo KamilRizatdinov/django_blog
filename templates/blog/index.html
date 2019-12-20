@@ -9,6 +9,17 @@
 <body>
     <h1>My pet blog</h1>
     <h5>Author: Kamil Rizatdinov</h5>
+
+    <form method="post" action="{% url 'blog:publish' %}">
+        {% csrf_token %}
+        <label>Create a new post</label><br>
+        Title<br>
+        <input type="text" name="header" maxlength="50" required><br>
+        Content<br>
+        <input type="text" name="text" maxlength="1000" required><br>
+        <input type="submit">
+    </form>
+
     {% if latest_posts_list %}
         <ul>
         {% for post in latest_posts_list %}
