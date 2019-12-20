@@ -1,7 +1,16 @@
-<h1>{{ post.header }}</h1>
-<p>{{ post.text }}</p>
-<p>Number of views: {{ post.views }}</p>
-<form action="{% url 'blog:read'%}" method="post">
-    {% csrf_token %}
-    <button name="post_id" value={{ post.id }}>Read</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.header }}</title>
+</head>
+<body>
+    <h1>{{ post.header }}</h1>
+    <p>{{ post.text }}</p>
+    <p>Number of views: {{ post.views }}</p>
+    <form action="{% url 'blog:read'%}" method="post">
+        {% csrf_token %}
+        <button name="post_id" value={{ post.id }}>Read</button>
+    </form>
+</body>
+</html>
