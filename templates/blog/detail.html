@@ -1,16 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{{ post.header }}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/detail.css' %}">
 </head>
 <body>
-    <h1>{{ post.header }}</h1>
-    <p>{{ post.text }}</p>
-    <p>Number of views: {{ post.views }}</p>
-    <form action="{% url 'blog:read'%}" method="post">
-        {% csrf_token %}
-        <button name="post_id" value={{ post.id }}>Read</button>
-    </form>
+    <div class="header-holder">
+        <h1>{{ post.header }}</h1>
+    </div>
+
+    <div class="text-holder">
+        <p>{{ post.text }}</p>
+    </div>
+
+    <div class="footer">
+        <p>{{ post.views }} 👁</p>
+        <form action="{% url 'blog:read'%}" method="post">
+            {% csrf_token %}
+            <button name="post_id" value={{ post.id }}>Read</button>
+        </form>
+    </div>
 </body>
 </html>
