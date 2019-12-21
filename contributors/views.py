@@ -6,7 +6,7 @@ import json
 
 # Create your views here.
 def index(request):
-    r = requests.get("https://api.github.com/repos/KamilRizatdinov/django_blog/stats/contributors")
+    r = requests.get("https://api.github.com/repos/aiogram/aiogram/stats/contributors")
     if r.status_code != 200:
         return HttpResponse('Something went wrong!')
     json_data = json.loads(r.text)
