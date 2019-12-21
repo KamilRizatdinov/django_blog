@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contributors</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'contributors/index.css' %}">
+</head>
+<body>
+    {% for contributor in contributors %}
+        <div class="contributor-holder">
+            <div class="avatar-holder">
+                <img src="{{ contributor.avatar }}">
+            </div>
+            <div class="login-holder">
+                <h1>{{ contributor.login }}</h1>
+            </div>
+
+            <div class="commits-holder">
+                <p>{{ contributor.total }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</body>
+</html>
