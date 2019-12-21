@@ -1,0 +1,22 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+.contributor-holder {
+    width: 20%;
+    box-shadow: 5px 5px 5px 5px rgba(110, 110, 110, 0.32);
+    margin: 2.5%;
+    float: left;
+}
+
+.avatar-holder img {
+    max-width: 100%;
+}
+
+.login-holder {
+}
+
+.commits-holder {
+}
