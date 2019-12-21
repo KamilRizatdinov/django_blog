@@ -10,7 +10,9 @@
     <div class="form-holder">
         <form id="input-form" method="post" action="{% url 'blog:publish' %}">
             {% csrf_token %}
-            <label>Create a new post</label><br>
+            <div class="header-holder">
+                <label>CREATE NEW POST</label><br>
+            </div>
             <input class="input-area" type="text" name="header" maxlength="50" placeholder="Title" required><br>
             <textarea class="input-area" cols="60" rows="10" name="text" placeholder="Content" form="input-form" required></textarea><br>
             <input type="submit">
@@ -22,8 +24,15 @@
             <ul>
             {% for post in latest_posts_list %}
                 <li>
-                    <a class="article" href="{% url 'blog:detail' post.id%}">{{ post.header }}</a>
-                    <p>{{ post.views }} 👁</p>
+                    <div class="header-holder">
+                        <a class="article" href="{% url 'blog:detail' post.id%}">{{ post.header }}</a>
+                    </div>
+                    <div class="text-holder">
+                        <p>{{ post.text }}</p>
+                    </div>
+                    <div class="views-holder">
+                        <p>{{ post.views }} 👁</p>
+                    </div>
                 </li>
             {% endfor %}
             </ul>

@@ -36,9 +36,17 @@ li {
     float: left;
     background-color: white;
     text-align: center;
-    height: 200px;
     width: 45%;
-    margin: 2% 2% 2% 2%;
+    margin: 1% 2% 1% 2%;
     list-style-type: none;
     box-shadow: 5px 5px 5px 5px rgba(110, 110, 110, 0.32);
+}
+
+.header-holder, .text-holder, .views-holder {
+    padding: 5px 0 5px 0;
+}
+
+.header-holder {
+    background-color: #ffe0ad;
+    text-align: center;
 }
