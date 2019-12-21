@@ -13,7 +13,8 @@ def index(request):
     contributors = [
         {'total': contributor['total'],
          'login': contributor['author']['login'],
-         'avatar': contributor['author']['avatar_url']}
+         'avatar': contributor['author']['avatar_url'],
+         'profile_url': contributor['author']['html_url']}
         for contributor in json_data
     ]
     context = {'contributors': contributors}

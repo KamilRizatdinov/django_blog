@@ -13,11 +13,11 @@
                 <img src="{{ contributor.avatar }}">
             </div>
             <div class="login-holder">
-                <h1>{{ contributor.login }}</h1>
+                <a href="{{ contributor.profile_url }}">{{ contributor.login }}</a>
             </div>
 
             <div class="commits-holder">
-                <p>{{ contributor.total }}</p>
+                <p>Commits: {{ contributor.total }}</p>
             </div>
         </div>
     {% endfor %}
