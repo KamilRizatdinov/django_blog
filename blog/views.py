@@ -9,6 +9,8 @@ from blog.models import Post
 # Create your views here.
 def index(request):
     latest_posts_list = Post.objects.order_by('-publication_date', '-views')
+    for post in latest_posts_list:
+        post.text = post.text[:50]+'..'
     context = {'latest_posts_list': latest_posts_list}
     return render(request, 'blog/index.html', context)
 
