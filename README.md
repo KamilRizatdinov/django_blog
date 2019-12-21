@@ -1,6 +1,8 @@
 # Django blog
 This is my first time using Django web framework. 
 This blog is just a page with inputs for creating the articles and possibility to read them.
+
+![Django blog](https://imbt.ga/RKcujFcAO3)
 ## Getting Started
 On this section you will understand how to get a copy of the project and 
 deploy it on your local machine for development or testing purposes.
