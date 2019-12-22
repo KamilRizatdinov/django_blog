@@ -1,0 +1,9 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'blog/menu_template.css' %}">
+
+<div class="menu-holder">
+    <ul class="menu-list">
+        <li><a href="{% url 'blog:index' %}">Blog</a></li>
+        <li><a href="{% url 'blog:contributors' %}">Contributors</a></li>
+    </ul>
+</div>
