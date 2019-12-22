@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'blog/index.css' %}">
 </head>
 <body>
+    {% include 'blog/menu_template.html' %}
     <div class="form-holder">
         <form id="input-form" method="post" action="{% url 'blog:publish' %}">
             {% csrf_token %}
@@ -15,13 +16,13 @@
             </div>
             <input class="input-area" type="text" name="header" maxlength="50" placeholder="Title" required><br>
             <textarea maxlength="1000" class="input-area" cols="60" rows="10" name="text" placeholder="Content" form="input-form" required></textarea><br>
-            <input type="submit">
+            <input class="button" type="submit">
         </form>
     </div>
 
     <div class="content-holder">
         {% if latest_posts_list %}
-            <ul>
+            <ul class="post_list">
             {% for post in latest_posts_list %}
                 <li>
                     <div class="header-holder">

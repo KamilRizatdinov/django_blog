@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'blog/detail.css' %}">
 </head>
 <body>
+    {% include 'blog/menu_template.html' %}
     <div class="header-holder">
         <h1>{{ post.header }}</h1>
     </div>
@@ -16,7 +17,6 @@
     </div>
 
     <div class="footer">
-        <p>{{ post.views }} 👁</p>
         <form action="{% url 'blog:read'%}" method="post">
             {% csrf_token %}
             <button name="post_id" value={{ post.id }}>Read</button>
