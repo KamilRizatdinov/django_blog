@@ -77,3 +77,20 @@ class BlogIndexViewTests(TestCase):
             f'<Post: {str(post2)}>',
             f'<Post: {str(post3)}>',
         ])
+
+    def test_post_by_publication_date_and_views_ordering(self):
+        """
+        If there are several posts, they should be arranged
+        firts in the publication_date descending order,
+        second in the views descending order.
+        """
+        post1 = create_post('Post#1', 'Post#1 text', 5, timezone.now())
+        post2 = create_post('Post#2', 'Post#2 text', 1, timezone.now())
+        post3 = create_post('Post#3', 'Post#3 text', 10, timezone.now() - datetime.timedelta(days=10))
+        response = self.client.get(reverse('blog:index'))
+        self.assertEqual(response.status_code, 200)
+        self.assertQuerysetEqual(response.context['latest_posts_list'], [
+            f'<Post: {str(post1)}>',
+            f'<Post: {str(post2)}>',
+            f'<Post: {str(post3)}>',
+        ])
