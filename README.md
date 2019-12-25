@@ -23,26 +23,26 @@ Now you can see example.env with such content inside it:
 ```
 SECRET_KEY=your_django_secret_key_here
 ```
-As you already guessed - you need to put your django secret key here. Don't worry if you don't have one, you can get it [here](https://djecrety.ir).
+Put your django secret key here. If you don't have one, you can get it [here](https://djecrety.ir).
 ### Copy to .env
 Now you need to copy the content of example.env to .env file. Use this:
 ```
 > cp example.env .env
 ```
-### Run migrations
-Now you need to run the migrations, to do this use the following command:
+### Compose up
+Now you need build our application, to do this use the following command:
 ```
-> docker-compose run web python /app/manage.py migrate
+> docker-compose up --build -d
+```
+### Run migrations
+Now you need to migrate your postgres database, use this:
+```
+> docker-compose run web /code/manage.py migrate
 ```
 ### Create superuser (optional)
 If you want to use Django admin panel you need to create a superuser with the following command:
 ```
-> docker-compose run web python /app/manage.py createsuperuser
-```
-### Start application
-Now you can start this application by running:
-```
-> docker-compose up -d --build
+> docker-compose run web python /code/manage.py createsuperuser
 ```
 
 
