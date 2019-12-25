@@ -39,7 +39,7 @@ class BlogIndexViewTests(TestCase):
 
     def test_one_post(self):
         """
-        If there exist at least one post, it need to be in 'latest_posts_list' in context.
+        If there exist exactly one post, it need to be in 'latest_posts_list' in context.
         """
         post = create_post('Post#1', 'Post#1 text', 10, timezone.now())
         response = self.client.get(reverse('blog:index'))
