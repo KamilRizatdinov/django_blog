@@ -94,3 +94,19 @@ class BlogIndexViewTests(TestCase):
             f'<Post: {str(post2)}>',
             f'<Post: {str(post3)}>',
         ])
+
+
+class BlogDetailViewTests(TestCase):
+    def test_no_post(self):
+        """
+        If there is no such post in Database,
+        404 need to be thrown to the attempt of
+        loading post detail
+        """
+        url = reverse('blog:detail', args=(1,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
+
+
+
+
