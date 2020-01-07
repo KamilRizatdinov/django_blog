@@ -107,6 +107,13 @@ class BlogDetailViewTests(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
 
-
-
-
+    def test_post_text(self):
+        """
+        If post which detail is requested exist in Database,
+        need to display its full text.
+        """
+        post1 = create_post('Post#1', 'Post#1 text', 5, timezone.now())
+        url = reverse('blog:detail', args=(post1.id,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, post1.text)
