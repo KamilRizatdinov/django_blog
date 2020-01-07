@@ -28,14 +28,14 @@ def contributors(request):
     if r.status_code != 200:
         return HttpResponse('Something went wrong!')
     json_data = json.loads(r.text)
-    contributors = [
+    contributors_list = [
         {'total': contributor['total'],
          'login': contributor['author']['login'],
          'avatar': contributor['author']['avatar_url'],
          'profile_url': contributor['author']['html_url']}
         for contributor in json_data
     ]
-    context = {'contributors': contributors}
+    context = {'contributors': contributors_list}
     return render(request, 'blog/contributors.html', context)
 
 
